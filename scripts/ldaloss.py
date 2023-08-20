@@ -98,8 +98,8 @@ def linear_discriminative_eigvals(y, X, lambda_val=1e-3, ret_vecs=False):
         Xg = X[y == i]                                                                  # [None, d]
         Xg_bar = Xg - torch.mean(Xg, dim=0, keepdim=True)                               # [None, d]
         m = float(Xg_bar.shape[0])                                                     # []
-        return (1. / (m - 1)) * torch.sum(
-            Xg_bar.unsqueeze(dim=1) * Xg_bar.unsqueeze(dim=2), dim=0)                   # [d, d]
+        return (1. / ((m - 1)) * torch.sum(
+            Xg_bar.unsqueeze(dim=1) * Xg_bar.unsqueeze(dim=2), dim=0))                   # [d, d]
 
     # convariance matrixs for all the classes
     covs = []
